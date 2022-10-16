@@ -3,8 +3,6 @@
 console.log("mangadex media controls script loaded");
 
 chrome.runtime.onMessage.addListener((request) => {
-    console.log(request.command , "page");
-
     switch (request.command) {
         case "prev":
             prevPage();
@@ -26,8 +24,6 @@ function prevPage() {
     };
     
     var click = new MouseEvent('click', clickConfig);
-
-    console.log(prevButton);
     
     prevButton.dispatchEvent(click);
 }
@@ -42,8 +38,6 @@ function nextPage() {
     };
     
     var click = new MouseEvent('click', clickConfig);
-
-    console.log(nextButton);
 
     nextButton.dispatchEvent(click);
 }
