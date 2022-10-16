@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Mangadex media controls",
+  "version": "1.0",
+  "author": "agaudreau1997",
+  "description": "Adds media controls functionnality to mangadex to navigate through pages",
+  "permissions": ["tabs", "contextMenus"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mangadex.org/chapter/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "commands": {
+    "prev": {
+      "suggested_key": {
+        "default": "MediaPrevTrack",
+        "mac": "MediaPrevTrack"
+      },
+      "description": "Previous page",
+      "global": true
+    },
+    "next": {
+      "suggested_key": {
+        "default": "MediaNextTrack",
+        "mac": "MediaNextTrack"
+      },
+      "description": "Next page",
+      "global": true
+    }
+  },
+  "background": {
+    "service_worker":  "background.js"
+  },
+  "action": {
+    "default_icon": {            
+      "16": "logo.png"
+    },
+    "default_popup": "popup.html"
+  }
+}

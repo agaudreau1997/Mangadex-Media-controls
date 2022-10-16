@@ -1,0 +1,48 @@
+.body {
+    width: 30px;
+    background-color: red;
+    height: 50px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(176deg, rgba(255,0,0,1) 0%, rgba(144,0,0,1) 100%);
+    margin: 20px 50px 0;
+}
+
+.visor {
+    height: 15px;
+    width: 25px;
+    background: linear-gradient(127deg, rgba(255,255,255,1) 0%, rgba(63,163,223,1) 33%, rgba(46,73,89,1) 100%, rgba(46,76,94,1) 100%);
+    border-radius: 6px;
+    position: absolute;
+    top: 10px;
+    left: -5px;
+}
+
+.backpack {
+    position: absolute;
+    top: 15px;
+    right: -7px;
+    height: 23px;
+    width: 7px;
+    background: linear-gradient(-85deg, rgba(255,0,0,1) 0%, rgba(144,0,0,1) 100%);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.legs {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 50px;
+}
+
+.leg {
+    height: 20px;
+    width: 10px;
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(144,0,0,1) 100%);
+    border-radius: 5px;
+    position: relative;
+    top: -10px;
+}
