@@ -1,11 +1,38 @@
 // Content script to control Mangadex pages
 
-// TODO: make this hotload when you navigate to a chapter page instead of only on refresh
-
 console.log("mangadex media controls script loaded");
 
-setTimeout(()=> {
+chrome.runtime.onMessage.addListener((request) => {
+    console.log(request.command , "page");
+
+    switch (request.command) {
+        case "prev":
+            prevPage();
+            break;
+
+        case "next":
+            nextPage();
+            break;
+    }
+});
+
+function prevPage() {
     const prevButton = document.querySelectorAll("[data-v-576d969b][data-v-6b3fd699]")[0];
+
+    var clickConfig = {
+        bubbles: true,
+        cancelable: false,
+        view: window
+    };
+    
+    var click = new MouseEvent('click', clickConfig);
+
+    console.log(prevButton);
+    
+    prevButton.dispatchEvent(click);
+}
+
+function nextPage() {
     const nextButton = document.querySelectorAll("[data-v-576d969b][data-v-6b3fd699]")[1];
 
     var clickConfig = {
@@ -16,17 +43,7 @@ setTimeout(()=> {
     
     var click = new MouseEvent('click', clickConfig);
 
-    chrome.runtime.onMessage.addListener((request) => {
-        console.log(request.command , "page");
-    
-        switch (request.command) {
-            case "prev":
-                prevButton.dispatchEvent(click);
-                break;
-    
-            case "next":
-                nextButton.dispatchEvent(click);
-                break;
-        }
-    });
-}, 2000)
+    console.log(nextButton);
+
+    nextButton.dispatchEvent(click);
+}
