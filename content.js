@@ -1,3 +1,5 @@
+// Content script to control Mangadex pages
+
 // TODO: make this hotload when you navigate to a chapter page instead of only on refresh
 
 console.log("mangadex media controls script loaded");
